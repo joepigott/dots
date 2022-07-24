@@ -1,2 +1,2 @@
 # dots
-dotfiles ¯\_(ツ)_/¯
+dotfiles ¯\\_(ツ)_/¯
