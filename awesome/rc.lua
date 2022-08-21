@@ -364,13 +364,13 @@ clientkeys = gears.table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "n",
-        function (c)
+    --awful.key({ modkey,           }, "n",
+    --    function (c)
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
-            c.minimized = true
-        end ,
-        {description = "minimize", group = "client"}),
+    --        c.minimized = true
+    --    end ,
+    --    {description = "minimize", group = "client"}),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized = not c.maximized
@@ -464,7 +464,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = 2,
+      properties = { border_width = 1,
                      border_color = "#babbf1",
                      focus = awful.client.focus.filter,
                      raise = true,
@@ -592,11 +592,9 @@ client.connect_signal("!property::fullscreen", function(c) c.shape = gears.shape
 -- }}}
 
 -- Gaps --
-beautiful.useless_gap = 5
+beautiful.useless_gap = 15
 
 -- Autostart Applications --
 awful.spawn.with_shell("picom --experimental-backends")
-awful.spawn.with_shell("polybar left")
-awful.spawn.with_shell("polybar center")
-awful.spawn.with_shell("polybar right")
+awful.spawn.with_shell("polybar complete")
 awful.spawn.with_shell("dunst")

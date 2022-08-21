@@ -27,10 +27,10 @@ configuration {
   lavender:  #babbf1;
 
   text:      #c6d0f5;
-  base:      #30344622;
-  inactive:  #73799455;
+  crust:     #232634;
+  overlay1:  #838ba7;
 
-  background-color: @base;
+  background-color: @crust;
 
   border: 0;
   margin: 0;
@@ -39,8 +39,8 @@ configuration {
 }
 
 window {
-  width: 45%;
-  border-radius: 8px;
+  width: 30%;
+  padding: 12;
 }
 
 element {
@@ -50,8 +50,8 @@ element {
 }
 
 element selected {
-  text-color: @flamingo;
-  background-color: @inactive;
+  text-color: @crust;
+  background-color: @blue;
 }
 
 element-text {
@@ -65,13 +65,13 @@ element-icon {
 }
 
 entry {
-  background-color: @base;
+  background-color: @crust;
   padding: 12;
   text-color: @text;
 }
 
 prompt {
-  background-color: @base;
+  background-color: @crust;
   padding: 12;
   text-color: @text;
 }
@@ -81,7 +81,7 @@ inputbar {
 }
 
 listview {
-  background-color: @base;
+  background-color: @crust;
   columns: 1;
   lines: 8;
 }
