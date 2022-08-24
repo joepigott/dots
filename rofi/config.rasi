@@ -11,26 +11,25 @@ configuration {
 @theme "/dev/null"
 
 * {
-  rosewater: #f2d5cf;
-  flamingo:  #eebebe;
-  pink:      #f4b8e4;
-  mauve:     #ca9ee6;
-  red:       #e78284;
-  maroon:    #ea999c;
-  peach:     #ef9f76;
-  yellow:    #e5c890;
-  green:     #a6d189;
-  teal:      #81c8be;
-  sky:       #99d1db;
-  sapphire:  #85c1dc;
-  blue:      #8caaee;
-  lavender:  #babbf1;
+  red      : #be2720;
+  lred     : #e46c67;
+  green    : #67b85d;
+  lgreen   : #94dc8b;
+  yellow   : #cecd6b;
+  lyellow  : #e9e9a3;
+  blue     : #237de1;
+  lblue    : #7cb1ec;
+  magenta  : #936bc8;
+  lmagenta : #b99be2;
+  cyan     : #29adc2;
+  lcyan    : #7cd3e0;
 
-  text:      #c6d0f5;
-  crust:     #232634;
-  overlay1:  #838ba7;
+  fg       : #cecfdf;
+  bg       : #17181c;
 
-  background-color: @crust;
+  disabled : #7c7d87;
+
+  background-color: @bg;
 
   border: 0;
   margin: 0;
@@ -45,13 +44,13 @@ window {
 
 element {
   padding: 8;
-  text-color: @text;
+  text-color: @fg;
   border-radius: 8px;
 }
 
 element selected {
-  text-color: @crust;
-  background-color: @blue;
+  text-color: @bg;
+  background-image: linear-gradient(#7cb1ec, #e46c67);
 }
 
 element-text {
@@ -65,15 +64,19 @@ element-icon {
 }
 
 entry {
-  background-color: @crust;
+  background-color: @bg;
   padding: 12;
-  text-color: @text;
+  text-color: @fg;
+
+  margin-bottom: 50;
 }
 
 prompt {
-  background-color: @crust;
+  background-color: @bg;
   padding: 12;
-  text-color: @text;
+  text-color: @fg;
+
+  margin-bottom: 50;
 }
 
 inputbar {
@@ -81,7 +84,7 @@ inputbar {
 }
 
 listview {
-  background-color: @crust;
+  background-color: @bg;
   columns: 1;
   lines: 8;
 }

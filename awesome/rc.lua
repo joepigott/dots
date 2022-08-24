@@ -465,7 +465,7 @@ awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
       properties = { border_width = 1,
-                     border_color = "#babbf1",
+                     border_color = "#b99be2",
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
@@ -584,8 +584,8 @@ end)
 --end) 
 --
 
-client.connect_signal("focus", function(c) c.border_color = "#babbf1" end) 
-client.connect_signal("unfocus", function(c) c.border_color = "#737994" end)
+client.connect_signal("focus", function(c) c.border_color = "#b99be2" end) 
+client.connect_signal("unfocus", function(c) c.border_color = "#7c7d87" end)
 
 client.connect_signal("property::fullscreen", function(c) c.shape = gears.shape.rectangle end)
 client.connect_signal("!property::fullscreen", function(c) c.shape = gears.shape.rectangle end)
