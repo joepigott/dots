@@ -5,6 +5,6 @@ the awesome config is especially messy, so i'm working on a full refactor at the
 
 if you run into any problems, feel free to open an issue and i will more than likely not get to it but i will try. :)
 
-pdate: semester started, progress will be unbearably slow.
+update: semester started, progress will be unbearably slow.
 
 ![Image](screenshots/8pqlcb4aelj91.png)
