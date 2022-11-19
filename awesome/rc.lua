@@ -22,9 +22,9 @@ require("awful.hotkeys_popup.keys")
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-    -- naughty.notify({ preset = naughty.config.presets.critical,
-    --                  title = "Oops, there were errors during startup!",
-    --                  text = awesome.startup_errors })
+    naughty.notify({ preset = naughty.config.presets.critical,
+                     title = "Oops, there were errors during startup!",
+                     text = awesome.startup_errors })
 end
 
 -- Handle runtime errors after startup
@@ -35,9 +35,9 @@ do
         if in_error then return end
         in_error = true
 
-        -- naughty.notify({ preset = naughty.config.presets.critical,
-        --                  title = "Oops, an error happened!",
-        --                  text = tostring(err) })
+        naughty.notify({ preset = naughty.config.presets.critical,
+                         title = "Oops, an error happened!",
+                         text = tostring(err) })
         in_error = false
     end)
 end
@@ -45,12 +45,12 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
---beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init("~/.config/awesome/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -62,19 +62,19 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    --awful.layout.suit.floating,
-    --awful.layout.suit.tile,
-    --awful.layout.suit.tile.left,
-    --awful.layout.suit.tile.bottom,
-    --awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
+    -- awful.layout.suit.floating,
+    -- awful.layout.suit.tile,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -197,9 +197,9 @@ awful.screen.connect_for_each_screen(function(s)
     --}
 
     -- Create the wibox
-    -- s.mywibox = awful.wibar({ position = "top", screen = s })
+    --s.mywibox = awful.wibar({ position = "top", screen = s })
 
-    --Add widgets to the wibox
+    -- Add widgets to the wibox
     --s.mywibox:setup {
     --    layout = wibox.layout.align.horizontal,
     --    { -- Left widgets
@@ -313,7 +313,8 @@ globalkeys = gears.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.util.spawn("rofi -show drun") end,
-	      {description = "run prompt", group = "launcher"}),
+              {description = "run prompt", group = "launcher"}),
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -329,20 +330,21 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
 
     -- Media Controls
-    awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume 1 +2%") end),
-    awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("pactl set-sink-volume 1 -2%") end),
-    awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute 1 toggle") end),
+    awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") end),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") end),
+    awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end),
     awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause") end),
     awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next") end),
     awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl previous") end),
 
     -- Application Launchers
     awful.key({ modkey }, "b", function() awful.util.spawn("firefox") end),
-    awful.key({ modkey, "Shift"}, "f", function() awful.util.spawn("ranger") end),
+    awful.key({ modkey }, "z", function() awful.util.spawn("zathura") end),
+    awful.key({ modkey }, "t", function() awful.util.spawn("thunar") end),
 
     -- Shutdown
     awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("shutdown now") end),
-
+    
     -- Reboot
     awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("reboot") end)
 )
@@ -366,8 +368,8 @@ clientkeys = gears.table.join(
               {description = "toggle keep on top", group = "client"}),
     --awful.key({ modkey,           }, "n",
     --    function (c)
-            -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
+    --        -- The client currently has the input focus, so it cannot be
+    --        -- minimized, since minimized clients can't have the focus.
     --        c.minimized = true
     --    end ,
     --    {description = "minimize", group = "client"}),
@@ -464,7 +466,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = 1,
+      properties = { border_width = 2,
                      border_color = "#b99be2",
                      focus = awful.client.focus.filter,
                      raise = true,
@@ -506,9 +508,9 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
-    { rule = {}, except = { class = "Polybar" }, callback = function(c) c.shape = gears.shape.rounded_rect end },
+      { rule = {}, except = { class = "Polybar" }, callback = function(c) c.shape = gears.shape.rounded_rect end },
 
-    { rule = { class = "Polybar" }, callback = function(c) c.border_width = 0 end },
+      { rule = { class = "Polybar"}, callback = function(c) c.border_width = 0 end },
 
     -- Add titlebars to normal clients and dialogs
     --{ rule_any = {type = { "normal", "dialog" }
@@ -517,7 +519,7 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
-    --  properties = { screen = 1, tag = "2" } },
+    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -536,8 +538,6 @@ client.connect_signal("manage", function (c)
     end
 end)
 
-
-
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 --client.connect_signal("request::titlebars", function(c)
 --    -- buttons for the titlebar
@@ -553,7 +553,7 @@ end)
 --    )
 --
 --    awful.titlebar(c) : setup {
---        { -- Left
+--       { -- Left
 --            awful.titlebar.widget.iconwidget(c),
 --            buttons = buttons,
 --            layout  = wibox.layout.fixed.horizontal
@@ -581,20 +581,21 @@ end)
 -- Enable sloppy focus, so that focus follows mouse.
 --client.connect_signal("mouse::enter", function(c)
 --    c:emit_signal("request::activate", "mouse_enter", {raise = false})
---end) 
---
+--end)
 
-client.connect_signal("focus", function(c) c.border_color = "#b99be2" end) 
+client.connect_signal("focus", function(c) c.border_color = "#b99be2" end)
 client.connect_signal("unfocus", function(c) c.border_color = "#7c7d87" end)
 
 client.connect_signal("property::fullscreen", function(c) c.shape = gears.shape.rectangle end)
-client.connect_signal("!property::fullscreen", function(c) c.shape = gears.shape.rectangle end)
--- }}}
+client.connect_signal("!property::fullscreen", function(c) c.shape = gears.shape.rounded_rect end)
 
--- Gaps --
-beautiful.useless_gap = 15
+beautiful.useless_gap = 13
 
--- Autostart Applications --
+-- Autostart
+
 awful.spawn.with_shell("picom --experimental-backends")
 awful.spawn.with_shell("polybar complete")
 awful.spawn.with_shell("dunst")
+awful.spawn.with_shell("xscreensaver --no-splash")
+
+-- }}}
