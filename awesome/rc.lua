@@ -589,7 +589,7 @@ client.connect_signal("unfocus", function(c) c.border_color = "#7c7d87" end)
 client.connect_signal("property::fullscreen", function(c) c.shape = gears.shape.rectangle end)
 client.connect_signal("!property::fullscreen", function(c) c.shape = gears.shape.rounded_rect end)
 
-beautiful.useless_gap = 13
+beautiful.useless_gap = 6
 
 -- Autostart
 
