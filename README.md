@@ -1,6 +1,6 @@
 # dots
 
-[installation instructions](install.md)
+[installation instructions](https://github.com/joepigott/dots/install.md)
 
 my dotfiles. they are guaranteed to be horribly written and very poorly documented but they're here.
 
