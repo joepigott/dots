@@ -7,4 +7,4 @@ if you run into any problems, feel free to open an issue and i will more than li
 
 update: semester started, progress will be unbearably slow.
 
-![Image](screenshots/8pqlcb4aelj91.png)
+![Image](screenshots/dec-rice/photo_2022-12-02_09-55-09.jpg)
