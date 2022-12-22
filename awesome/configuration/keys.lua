@@ -1,90 +1,133 @@
-local awful = require("awful")
-local beautiful = require("beautiful")
+require("configuration.init")
 
-mod = "Mod4"
-alt = "Mod1"
-ctrl = "Control"
-shift = "Shift"
+--- mouse ---
+root.buttons(gears.table.join(
+    awful.button({ }, 3, function() end),
+    awful.button({ }, 4, awful.tag.viewnext),
+    awful.button({ }, 5, awful.tag.viewprev)
+))
 
---- global keys ---
-awful.keyboard.append_global_keybindings({
-  --- awesome ---
-  awful.key({ mod, shift }, "q", awesome.quit),
-  awful.key({ mod, shift }, "r", awesome.restart),
+--- global ---
+globalkeys = gears.table.join(
+    --- tag and window stuff ---
+    awful.key({ modkey }, "Left", awful.tag.viewprev),
+    awful.key({ modkey }, "Right", awful.tag.viewnext),
+    awful.key({ modkey }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey }, "j", function()
+        awful.client.focus.byidx(1)
+    end),
+    awful.key({ modkey }, "k", function()
+        awful.client.focus.byidx(-1)
+    end),
+    awful.key({ modkey, "Shift" }, "j", function()
+        awful.client.swap.byidx(1)
+    end),
+    awful.key({ modkey, "Shift" }, "k", function()
+        awful.client.swap.byidx(-1)
+    end),
+    awful.key({ modkey }, "Tab", function()
+        awful.client.focus.history.previous()
+        if client.focus then
+            client.focus:raise()
+        end
+    end),
+    
+    --- system controls ---
+    awful.key({ modkey, "Control" }, "r", awesome.restart),
+    awful.key({ modkey, "Shift" }, "q", awesome.quit),
+    awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("shutdown now") end),
+    awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("reboot") end),
+    
+    --- appplications ---
+    awful.key({ modkey }, "Return", function() awful.spawn(terminal) end),
+    awful.key({ modkey }, "r", function() awful.util.spawn("rofi -show drun") end),
+    awful.key({ modkey }, "b", function() awful.util.spawn("firefox") end),
+    awful.key({ modkey }, "t", function() awful.util.spawn("thunar") end),
 
-  --- navigation ---
-  awful.key({ mod }, "j", function() awful.client.focus.byidx(1) end),
-  awful.key({ mod }, "k", function() awful.client.focus.byidx(-1) end),
-  awful.key({ mod, shift }, "j", function()
-    awful.client.swap.byidx(1)
-  end),
-  awful.key({ mod, shift }, "k", function()
-    awful.client.swap.byidx(-1)
-  end),
-  awful.key({ mod }, "Tab", function()
-    awful.client.focus.history.previous()
-    if client.focus then
-      client.focus:raise()
-    end
-  end),
-
-  --- apps ---
-  awful.key({ mod }, "Return", awful.spawn("kitty")),
-  awful.key({ mod }, "b", awful.spawn("firefox")),
-  awful.key({ mod }, "r", awful.spawn("rofi -show drun")),
-  awful.key({ mod }, "f", awful.spawn("ranger")),
-
-  --- media ---
-  awful.key({}, "XF86AudioRaiseVolume", function()
-    awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")
-  end),
-  awful.key({}, "XF86AudioLowerVolume", function()
-    awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")
-  end),
-  awful.key({}, "XF86AudioMute", function()
-    awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")
-  end),
-  awful.key({}, "XF86AudioPlay", function()
-    awful.spawn("playerctl play-pause")
-  end),
-  awful.key({}, "XF86AudioNext", function()
-    awful.spawn("playerctl next")
-  end),
-  awful.key({}, "XF86AudioPrev", function()
-    awful.spawn("playerctl previous")
-  end),
-
-  --- system ---
-  awful.key({ mod, shift }, "s", function()
-    awful.spawn("shutdown now")
-  end),
-  awful.key({ mod, shift }, "r", function()
-    awful.spawn("reboot")
-  end)
-})
+    --- media ---
+    awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") end),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") end),
+    awful.key({}, "XF86AudioMute", function() awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end),
+    awful.key({}, "XF86AudioPlay", function() awful.util.spawn("playerctl play-pause") end),
+    awful.key({}, "XF86AudioNext", function() awful.util.spawn("playerctl next") end),
+    awful.key({}, "XF86AudioPrev", function() awful.util.spawn("playerctl previous") end)
+)
 
 --- client keys ---
-client.connect_signal("request::default_keybindings", function()
-  awful.keyboard.append_client_keybindings({
-    awful.key({ mod }, "f", function(c)
-      c.fullscreen = not c.fullscreen
-      c:raise()
+clientkeys = gears.table.join(
+    awful.key({ modkey }, "f", function(c)
+        c.fullscreen = not c.fullscreen
+        c:raise()
     end),
-    awful.key({ mod }, "c", function(c)
-      c:kill()
+    awful.key({ modkey }, "c", function(c) c:kill() end),
+    awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle),
+    awful.key({ modkey, "Control" }, "Return", function(c)
+        c:swap(awful.client.getmaster())
     end),
-    awful.key({ mod }, "space", awful.client.floating.toggle),
-    awful.key({ mod, ctrl }, "Return", function(c)
-      c:swap(awful.client.getmaster())
+    awful.key({ modkey }, "o", function(c) c:move_to_screen() end),
+    awful.key({ modkey }, "t", function(c) c.ontop = not c.ontop end),
+    awful.key({ modkey }, "m", function(c)
+        c.maximized = not c.maximized
+        c:raise()
     end),
-    awful.key({ mod }, "m", function(c)
-      c.maximized = not c.maximized
-      c:raise()
+    awful.key({ modkey, "Control" }, "m", function(c)
+        c.maximized_vertical = not c.maximized_vertical
+        c:raise()
+    end),
+    awful.key({ modkey, "Shift" }, "m", function(c)
+        c.maximized_horizontal = not c.maximized_horizontal
+        c:raise()
     end)
-  })
-end)
+)
 
---- tags ---
 for i = 1, 9 do
-  globalkeys
+    globalkeys = gears.table.join(globalkeys,
+        awful.key({ modkey }, "#" .. i + 9, function()
+            local screen = awful.screen.focused()
+            local tag = screen.tags[i]
+            if tag then
+                tag:view_only()
+            end
+        end),
+        awful.key({ modkey, "Control" }, "#" .. i + 9, function()
+            local screen = awful.screen.focused()
+            local tag = screen.tags[i]
+            if tag then
+                awful.tag.viewtoggle(tag)
+            end
+        end),
+        awful.key({ modkey, "Shift" }, "#" .. i + 9, function()
+            if client.focus then
+                local tag = client.focus.screen.tags[i]
+                if tag then
+                    client.focus:move_to_tag(tag)
+                end
+            end
+        end),
+        awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9, function()
+            if client.focus then
+                local tag = client.focus.screen.tags[i]
+                if tag then
+                    client.focus:toggle_tag(tag)
+                end
+            end
+        end)
+    )
 end
+
+clientbuttons = gears.table.join(
+    awful.button({ }, 1, function(c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+    end),
+    awful.button({ modkey }, 1, function(c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+        awful.mouse.client.move(c)
+    end),
+    awful.button({ modkey }, 3, function(c)
+        c:emit_signal("request::activate", "mouse_click", {raise = true})
+        awful.mouse.client.resize(c)
+    end)
+)
+
+--- set keys ---
+root.keys(globalkeys)
