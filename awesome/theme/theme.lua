@@ -2,19 +2,15 @@
 -- Pigroy's awesome theme --
 ----------------------------
 
-local theme_assets = require("beautiful.theme_assets")
-local xresources = require("beautiful.xresources")
-local dpi = xresources.apply_dpi
-
-local gfs = require("gears.filesystem")
-
 local theme = {}
 
-theme.font     = "FiraCode 24"
+local shapes = require("gears.shape")
 
+theme.font = "FiraCode 24"
+
+--- color scheme ---
 theme.bg       = "#17181c"
 theme.fg       = "#cecfdf"
-
 theme.red      = "#be2720"
 theme.lred     = "#e46c67"
 theme.green    = "#67b85d"
@@ -29,7 +25,8 @@ theme.cyan     = "#29adc2"
 theme.lcyan    = "#7cd3e0"
 theme.disabled = "#7c7d87"
 
-theme.useless_gap   = 12
+--- general window ---
+theme.useless_gap   = 7
 theme.border_width  = 2
 theme.border_normal = theme.disabled
 theme.border_focus  = theme.lcyan
@@ -47,6 +44,7 @@ theme.border_focus  = theme.lcyan
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
+--- titlebars ---
 theme.titlebar_bg = theme.bg
 theme.titlebar_fg = theme.fg
 
@@ -59,12 +57,26 @@ theme.titlebar_fg = theme.fg
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = "~/.config/awesome/theme/submenu.png"
-theme.menu_bg = theme.bg
-theme.menu_fg = theme.fg
-theme.menu_height = 100
-theme.menu_width  = 50
 
+--- menu ---
+theme.menu_submenu_icon = "~/.config/awesome/theme/submenu.png"
+theme.menu_bg           = theme.bg
+theme.menu_fg           = theme.fg
+theme.menu_height       = 100
+theme.menu_width        = 50
+
+--- status bar ---
+theme.wibar_stretch      = true
+theme.wibar_border_width = 7
+theme.wibar_border_color = "#00000000"
+theme.wibar_ontop        = true
+theme.wibar_type         = "dock"
+theme.wibar_height       = 15
+theme.wibar_bg           = theme.bg
+theme.wibar_fg           = theme.fg
+theme.wibar_shape        = shapes.rounded_rect
+
+--- wallpaper ---
 theme.wallpaper = "/usr/share/backgrounds/phoenix_wallpaper.png"
 
 return theme
