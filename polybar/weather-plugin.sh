@@ -5,8 +5,8 @@
 # API settings ________________________________________________________________
 
 APIKEY=`cat $HOME/.owm-key`
-CITY_NAME='CITY'
-COUNTRY_CODE='COUNTRY'
+CITY_NAME='Logan'
+COUNTRY_CODE='US'
 # Desired output language
 LANG="en"
 # UNITS can be "metric", "imperial" or "kelvin". Set KNOTS to "yes" if you
@@ -22,20 +22,20 @@ UNITS="imperial"
 
 # Color Settings ______________________________________________________________
 
-COLOR_CLOUD="#606060"
-COLOR_THUNDER="#d3b987"
-COLOR_LIGHT_RAIN="#73cef4"
-COLOR_HEAVY_RAIN="#b3deef"
-COLOR_SNOW="#FFFFFF"
-COLOR_FOG="#606060"
-COLOR_TORNADO="#d3b987"
-COLOR_SUN="#ffc24b"
-COLOR_MOON="#FFFFFF"
-COLOR_ERR="#f43753"
-COLOR_WIND="#73cef4"
-COLOR_COLD="#b3deef"
-COLOR_HOT="#f43753"
-COLOR_NORMAL_TEMP="#FFFFFF"
+COLOR_CLOUD="#8c8775"
+COLOR_THUNDER="#c6bc75"
+COLOR_LIGHT_RAIN="#4d8ee2"
+COLOR_HEAVY_RAIN="#6e8db5"
+COLOR_SNOW="#e5e0c9"
+COLOR_FOG="#8c8775"
+COLOR_TORNADO="#c6bc75"
+COLOR_SUN="#ddc14d"
+COLOR_MOON="#e5e0c9"
+COLOR_ERR="#f26d4f"
+COLOR_WIND="#80b5b2"
+COLOR_COLD="#80b5b2"
+COLOR_HOT="#f26d4f"
+COLOR_NORMAL_TEMP="#e5e0c9"
 
 # Leave "" if you want the default polybar color
 COLOR_TEXT=""
@@ -53,7 +53,7 @@ TEMP_FONT_CODE=1
 DISPLAY_WIND="no"
 
 # Display in knots. yes/no
-KNOTS="yes"
+KNOTS="no"
 
 # How many decimals after the floating point
 DECIMALS=0

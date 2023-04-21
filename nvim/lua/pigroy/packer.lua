@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
     use "wbthomason/packer.nvim"
-    use "Shatur/neovim-ayu"
+    use "savq/melange-nvim"
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
@@ -32,4 +32,8 @@ return require('packer').startup(function()
     use 'lukas-reineke/indent-blankline.nvim'
     use 'norcalli/nvim-colorizer.lua'
     use 'NvChad/nvterm'
+    use 'williamboman/mason.nvim'
+    use 'ojroques/nvim-hardline'
+    use 'lewis6991/gitsigns.nvim'
+    use 'mfussenegger/nvim-jdtls'
 end)

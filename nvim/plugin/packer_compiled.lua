@@ -109,15 +109,25 @@ _G.packer_plugins = {
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["neovim-ayu"] = {
+  ["mason.nvim"] = {
     loaded = true,
-    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/neovim-ayu",
-    url = "https://github.com/Shatur/neovim-ayu"
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["melange-nvim"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/melange-nvim",
+    url = "https://github.com/savq/melange-nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -133,6 +143,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-hardline"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/nvim-hardline",
+    url = "https://github.com/ojroques/nvim-hardline"
+  },
+  ["nvim-jdtls"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

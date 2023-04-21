@@ -6,7 +6,6 @@ require("nvim-tree").setup({
         adaptive_size = true,
         side = "left",
         width = 25,
-        hide_root_folder = true
     },
     git = {
         enable = true,
@@ -23,5 +22,6 @@ require("nvim-tree").setup({
         indent_markers = {
             enable = false,
         },
+        root_folder_label = false,
     }
 })
