@@ -16,7 +16,7 @@ I have a few absolute paths hard-coded into the rice that you'll need:
 
 ## Wallpaper
 
-If you want to use my wallpaper (the purple fractal), download it from one of 
+If you want to use my wallpaper (the fractal), download it from one of 
 these links:
 
 [1080p](https://u.cubeupload.com/pigroy/phoenix1080p.png)
