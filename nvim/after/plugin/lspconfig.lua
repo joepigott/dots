@@ -1,5 +1,6 @@
 local lsp = require('lspconfig')
 require('mason').setup({})
+require('fidget').setup({})
 
 lsp.pyright.setup({})
 lsp.rust_analyzer.setup({})

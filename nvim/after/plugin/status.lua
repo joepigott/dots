@@ -10,7 +10,7 @@ hardline.setup({
     theme = 'default',
     sections = {
         {class = 'mode', item = require('hardline.parts.mode').get_item},
-        {class = 'low', item = require('hardline.parts.filename').get_item},
+        {class = 'high', item = require('hardline.parts.git').get_item},
         '%<',
         {class = 'med', item = '%='},
         {class = 'low', item = require('hardline.parts.treesitter-context').get_item},

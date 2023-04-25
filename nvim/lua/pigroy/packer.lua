@@ -1,8 +1,8 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-    use "wbthomason/packer.nvim"
-    use "savq/melange-nvim"
+    use 'wbthomason/packer.nvim'
+    use 'EdenEast/nightfox.nvim'
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
@@ -35,5 +35,5 @@ return require('packer').startup(function()
     use 'williamboman/mason.nvim'
     use 'ojroques/nvim-hardline'
     use 'lewis6991/gitsigns.nvim'
-    use 'mfussenegger/nvim-jdtls'
+    use 'j-hui/fidget.nvim'
 end)

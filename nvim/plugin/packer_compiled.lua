@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -124,10 +129,10 @@ _G.packer_plugins = {
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["melange-nvim"] = {
+  ["nightfox.nvim"] = {
     loaded = true,
-    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/melange-nvim",
-    url = "https://github.com/savq/melange-nvim"
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -148,11 +153,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/nvim-hardline",
     url = "https://github.com/ojroques/nvim-hardline"
-  },
-  ["nvim-jdtls"] = {
-    loaded = true,
-    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
-    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
