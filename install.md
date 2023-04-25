@@ -16,12 +16,12 @@ I have a few absolute paths hard-coded into the rice that you'll need:
 
 ## Wallpaper
 
-If you want to use my wallpaper (the purple fractal), download it from one of 
+If you want to use my wallpaper (the fractal), download it from one of 
 these links:
 
-[1080p](https://cubeupload.com/im/pigroy/phoenixwallpaper.png)
+[1080p](https://u.cubeupload.com/pigroy/phoenix1080p.png)
 
-[4k](https://cubeupload.com/im/pigroy/phoenixwallpaper4k.png)
+[4k](https://u.cubeupload.com/pigroy/phoenix4k.png)
 
 Place these in `/usr/share/backgrounds/` (if you don't have this directory, 
 make it).
