@@ -17,6 +17,7 @@ return require('packer').startup(function()
             ts_update()
         end,
     }
+    use 'nvim-treesitter/playground'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -33,7 +34,7 @@ return require('packer').startup(function()
     use 'norcalli/nvim-colorizer.lua'
     use 'NvChad/nvterm'
     use 'williamboman/mason.nvim'
-    use 'ojroques/nvim-hardline'
+    use 'nvim-lualine/lualine.nvim'
     use 'lewis6991/gitsigns.nvim'
     use 'j-hui/fidget.nvim'
 end)

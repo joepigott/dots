@@ -1,21 +1,17 @@
-local hardline = require('hardline')
-require('gitsigns').setup({})
+local sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {'filename'},
+    lualine_x = {'diagnostics'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+}
 
-hardline.setup({
-    bufferline = true,
-    bufferline_settings = {
-        exclude_terminal = true,
-        show_index = false
+require('lualine').setup({
+    options = {
+        disabled_filetypes = {'NvimTree'},
     },
-    theme = 'default',
-    sections = {
-        {class = 'mode', item = require('hardline.parts.mode').get_item},
-        {class = 'high', item = require('hardline.parts.git').get_item},
-        '%<',
-        {class = 'med', item = '%='},
-        {class = 'low', item = require('hardline.parts.treesitter-context').get_item},
-        {class = 'error', item = require('hardline.parts.lsp').get_error},
-        {class = 'warning', item = require('hardline.parts.lsp').get_warning},
-        {class = 'mode', item = require('hardline.parts.line').get_item}
-    }
+    sections = sections
 })
+
+require("nvterm").setup({})

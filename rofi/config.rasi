@@ -3,7 +3,7 @@ configuration {
   display-window: "Windows: ";
   drun-display-format: "{icon} {name}";
   modi: "window,run,drun";
-  font: "Fira Code Nerd Font Medium 15";
+  font: "JetBrainsMono NF Bold 15";
   show-icons: true;
   icon-theme: "Papirus";
 }
@@ -41,7 +41,7 @@ window {
   padding: 12;
 
   border: 2;
-  border-color: #ddc14d;
+  border-color: @lgreen;
   border-radius: 15px;
 }
 

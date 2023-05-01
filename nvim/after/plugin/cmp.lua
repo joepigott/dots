@@ -1,4 +1,6 @@
 local cmp = require("cmp")
+require("nvim-autopairs").setup({})
+require("indent_blankline").setup({})
 
 local function border(hl_name)
   return {
@@ -84,3 +86,14 @@ local options = {
 
 cmp.setup(options)
 
+-- treesitter --
+
+require("nvim-treesitter.configs").setup({
+    highlight = {
+        enable = true,
+        use_languagetree = true,
+    },
+    indent = {
+        enable = true,
+    },
+})

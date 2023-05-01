@@ -11,10 +11,10 @@ nnoremap("<C-j>", "<C-W>j")
 nnoremap("<C-k>", "<C-W>k")
 nnoremap("<C-l>", "<C-W>l")
 
---- tabs
-nnoremap("<leader>n", "<cmd>tabnew<CR>")
-nnoremap("<Tab>", "<cmd>tabNext<CR>")
-nnoremap("<leader>x", "<cmd>tabclose<CR>")
-
 --- term
-nnoremap("<leader>t", function() require("nvterm.terminal").new "horizontal" end)
+nnoremap("<leader>t", function()
+    require("nvterm.terminal").new "horizontal"
+end)
+nnoremap("<leader>T", function()
+    require("nvterm.terminal").new "vertical"
+end)

@@ -74,7 +74,6 @@ theme.notification_bg = theme.bg
 theme.notification_fg = theme.fg
 theme.notification_border_color = theme.lyellow
 theme.notification_width = 500
-theme.notification_height = 100
 theme.notification_margin = 8
 
 --- menu ---

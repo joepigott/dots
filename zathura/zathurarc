@@ -8,7 +8,7 @@ set selection-clipboard clipboard
 
 set incremental-search "true"
 
-set font "Fira Code NF"
+set font "JetBrainsMono NF"
 
 set adjust-open "width"
 
@@ -20,14 +20,14 @@ set guioptions none
 
 # colors
 
-set default-bg "#17181c"
-set default-fg "#cecfdf"
-set recolor-darkcolor "#cecfdf"
-set recolor-lightcolor "#17181c"
-set highlight-color "#7cb1ec"
-set highlight-active-color "#94dc8b"
-set inputbar-bg "#22242b"
-set inputbar-fg "#cecfdf"
+set default-bg "#1c1b17"
+set default-fg "#e5e0c9"
+set recolor-darkcolor "#e5e0c9"
+set recolor-lightcolor "#1c1b17"
+set highlight-color "#c6b675"
+set highlight-active-color "#a0b77c"
+set inputbar-bg "#141412"
+set inputbar-fg "#e5e0c9"
 
 set recolor true
 map i recolor
