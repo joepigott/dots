@@ -13,4 +13,4 @@ going to end up coming from awesome in the future.
 if you run into any problems, feel free to open an issue and i will more than 
 likely not get to it but i will try. :)
 
-![Image](screenshots/may_rice.png)
+![Image](screenshots/may-rice.png)

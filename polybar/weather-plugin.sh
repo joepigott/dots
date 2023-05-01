@@ -5,8 +5,8 @@
 # API settings ________________________________________________________________
 
 APIKEY=`cat $HOME/.owm-key`
-CITY_NAME='Logan'
-COUNTRY_CODE='US'
+CITY_NAME='YOUR_CITY'
+COUNTRY_CODE='YOUR_COUNTRY'
 # Desired output language
 LANG="en"
 # UNITS can be "metric", "imperial" or "kelvin". Set KNOTS to "yes" if you
