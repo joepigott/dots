@@ -37,4 +37,11 @@ return require('packer').startup(function()
     use 'nvim-lualine/lualine.nvim'
     use 'lewis6991/gitsigns.nvim'
     use 'j-hui/fidget.nvim'
+    use 'tikhomirov/vim-glsl'
+    use 'evanleck/vim-svelte'
+    use 'sukima/xmledit'
+    use {
+        'nvim-telescope/telescope.nvim', tag = "0.1.1",
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 end)

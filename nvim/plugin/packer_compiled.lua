@@ -188,6 +188,31 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/playground",
     url = "https://github.com/nvim-treesitter/playground"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["vim-glsl"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/vim-glsl",
+    url = "https://github.com/tikhomirov/vim-glsl"
+  },
+  ["vim-svelte"] = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/vim-svelte",
+    url = "https://github.com/evanleck/vim-svelte"
+  },
+  xmledit = {
+    loaded = true,
+    path = "/home/pigroy/.local/share/nvim/site/pack/packer/start/xmledit",
+    url = "https://github.com/sukima/xmledit"
   }
 }
 
