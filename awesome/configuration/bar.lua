@@ -62,15 +62,15 @@ return function(s)
         },
         widget_template = {
             widget = wibox.container.margin,
-            forced_width = dpi(40),
-            forced_height = dpi(60),
+            forced_width = dpi(25),
+            forced_height = dpi(20),
             create_callback = function(self, c3, _)
                 local indicator = wibox.widget({
                     widget = wibox.container.place,
                     valign = "center",
                     {
                         widget = wibox.container.background,
-                        forced_height = dpi(8),
+                        forced_height = dpi(10),
                         shape = gears.shape.rounded_bar,
                     },
                 })
@@ -87,25 +87,25 @@ return function(s)
 
                 if c3.selected then
                     self.widget.children[1].bg = beautiful.lgreen
-                    self.indicator_animation:set(dpi(32))
+                    self.indicator_animation:set(dpi(35))
                 elseif #c3:clients() == 0 then
                     self.widget.children[1].bg = beautiful.disabled
-                    self.indicator_animation:set(dpi(8))
+                    self.indicator_animation:set(dpi(10))
                 else
                     self.widget.children[1].bg = beautiful.disabled
-                    self.indicator_animation:set(dpi(16))
+                    self.indicator_animation:set(dpi(18))
                 end
             end,
             update_callback = function(self, c3, _)
                 if c3.selected then
                     self.widget.children[1].bg = beautiful.lgreen
-                    self.indicator_animation:set(dpi(32))
+                    self.indicator_animation:set(dpi(35))
                 elseif #c3:clients() == 0 then
                     self.widget.children[1].bg = beautiful.disabled
-                    self.indicator_animation:set(dpi(8))
+                    self.indicator_animation:set(dpi(10))
                 else
                     self.widget.children[1].bg = beautiful.disabled
-                    self.indicator_animation:set(dpi(16))
+                    self.indicator_animation:set(dpi(18))
                 end
             end
         },

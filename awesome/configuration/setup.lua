@@ -1,5 +1,6 @@
 require("configuration.init")
 require("awful.autofocus")
+require("configuration.decorations")
 
 if awesome.startup_errors then
     naughty.notify({
