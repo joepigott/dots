@@ -2,8 +2,6 @@
 
 [installation instructions](https://github.com/joepigott/dots/blob/main/install.md)
 
-[current colorscheme](https://github.com/joepigott/pigroy-cs-cream)
-
 my dotfiles. they are guaranteed to be horribly written and very poorly 
 documented but they're here.
 
