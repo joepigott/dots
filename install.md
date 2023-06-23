@@ -27,7 +27,7 @@ Place these in `/usr/share/backgrounds/` (if you don't have this directory,
 make it).
 
 If you want to use your own wallpaper, you can set the path to it in 
-`~/.config/awesome/default/theme.lua` on line 101.
+`~/.config/awesome/default/theme.lua` near the bottom.
 
 ## OWM Key
 
