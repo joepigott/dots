@@ -43,8 +43,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "Return", function() awful.spawn(terminal) end),
     awful.key({ modkey }, "r", function() awful.util.spawn("rofi -show drun") end),
     awful.key({ modkey }, "w", function() awful.util.spawn("rofi -show window") end),
-    awful.key({ modkey }, "b", function() awful.util.spawn("firefox") end),
+    awful.key({ modkey }, "b", function() awful.util.spawn("librewolf") end),
     awful.key({ modkey }, "t", function() awful.util.spawn("telegram-desktop") end),
+    awful.key({ modkey }, "d", function() awful.util.spawn("discord") end),
 
     --- media ---
     awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") end),
@@ -78,6 +79,10 @@ clientkeys = gears.table.join(
     end),
     awful.key({ modkey, "Shift" }, "m", function(c)
         c.maximized_horizontal = not c.maximized_horizontal
+        c:raise()
+    end),
+    awful.key({ modkey }, "p", function(c)
+        c.ontop = not c.ontop
         c:raise()
     end)
 )
