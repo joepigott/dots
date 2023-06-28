@@ -5,21 +5,10 @@ local animation = require("modules.animation")
 local xrsrc = require("beautiful.xresources")
 local dpi = xrsrc.apply_dpi
 
-local update_tags = function(self, c3)
-    local txtbox = self:get_children_by_id('icon_role')[1]
-    txtbox.font = "JetBrainsMono Bold 18"
-
-    if c3.selected then
-        txtbox.markup = "<span color='" .. beautiful.lgreen .. "'></span>"
-    elseif #c3:clients() == 0 then
-        txtbox.markup = "<span color='" .. beautiful.disabled .. "'></span>"
-    else
-        txtbox.markup = "<span color='" .. beautiful.disabled .. "'></span>"
-    end
-end
-
 return function(s)
     local space = wibox.widget.textbox("   ") -- spacing widget
+    local sep = wibox.widget.textbox("<span color='" .. beautiful.fg .. "'> | </span>") -- separator widget
+    sep.font = beautiful.font .. " Bold 14"
 
     local date = wibox.widget({
         widget = wibox.widget.textclock,
@@ -30,7 +19,7 @@ return function(s)
     })
     local time = wibox.widget({
         widget = wibox.widget.textclock,
-        format = "<span color='" .. beautiful.lgreen .. "'>%I:%M</span>",
+        format = "<span color='" .. beautiful.lgreen .. "'>%I:%M %P</span>",
         align = "center",
         valign = "center",
         font = beautiful.font .. " Bold 14"
@@ -132,16 +121,13 @@ return function(s)
         {
             layout = wibox.layout.fixed.horizontal,
             space,
-            date
+            date,
+            sep,
+            time
         },
         {
             layout = wibox.layout.fixed.horizontal,
             s.taglist,
         },
-        {
-            layout = wibox.layout.fixed.horizontal,
-            time,
-            space
-        }
     }
 end
