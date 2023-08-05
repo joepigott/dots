@@ -5,6 +5,54 @@ local animation = require("modules.animation")
 local xrsrc = require("beautiful.xresources")
 local dpi = xrsrc.apply_dpi
 
+local function trim(s)
+   return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
+
+-- volume widget stuff --
+
+local volume_widget = wibox.widget({
+    {
+        min_value = 0,
+        max_value = 50,
+        border_width = 0,
+        forced_height = 20,
+        forced_width = 100,
+        margins = {
+            top = 13,
+            bottom = 13,
+        },
+        shape = gears.shape.rounded_bar,
+        bar_shape = gears.shape.rounded_bar,
+        color = beautiful.lgreen,
+        background_color = beautiful.disabled,
+        id = "vol",
+        widget = wibox.widget.progressbar
+    },
+    layout = wibox.layout.fixed.horizontal,
+    set_volume = function(self, vol)
+        self.vol.value = vol
+    end
+})
+
+gears.timer {
+    timeout = .1,
+    call_now = true,
+    autostart = true,
+    callback = function()
+        awful.spawn.easy_async("pactl get-sink-volume @DEFAULT_SINK@", 
+        function(out)
+            local tokens = {}
+            for token in string.gmatch(out, "[^/]+") do
+                table.insert(tokens, token)
+            end
+            local result = trim(tokens[2])
+            result = string.sub(result, 1, -2)
+            volume_widget.volume = tonumber(result)
+        end)
+    end
+}
+
 return function(s)
     local space = wibox.widget.textbox("   ") -- spacing widget
     local sep = wibox.widget.textbox("<span color='" .. beautiful.fg .. "'> | </span>") -- separator widget
@@ -122,12 +170,17 @@ return function(s)
             layout = wibox.layout.fixed.horizontal,
             space,
             date,
-            sep,
-            time
         },
         {
             layout = wibox.layout.fixed.horizontal,
             s.taglist,
         },
+        {
+            layout = wibox.layout.fixed.horizontal,
+            volume_widget,
+            space,
+            time,
+            space,
+        }
     }
 end
