@@ -36,7 +36,10 @@ return require('packer').startup(function()
     use 'williamboman/mason.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'lewis6991/gitsigns.nvim'
-    use 'j-hui/fidget.nvim'
+    use {
+        'j-hui/fidget.nvim',
+        tag = "legacy" -- config pinned to legacy until figdet rewrite is stable
+    }
     use 'tikhomirov/vim-glsl'
     use 'evanleck/vim-svelte'
     use 'sukima/xmledit'
