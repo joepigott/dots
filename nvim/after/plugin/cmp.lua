@@ -1,6 +1,6 @@
 local cmp = require("cmp")
 require("nvim-autopairs").setup({})
-require("indent_blankline").setup({})
+require("ibl").setup({})
 
 local function border(hl_name)
   return {

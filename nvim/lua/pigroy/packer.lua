@@ -24,10 +24,7 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
     use 'saadparwaiz1/cmp_luasnip'
-    use {
-        'L3MON4D3/LuaSnip',
-        tag = "v<CurrentMajor>.*"
-    }
+    use 'L3MON4D3/LuaSnip'
     use 'rafamadriz/friendly-snippets'
     use 'windwp/nvim-autopairs'
     use 'lukas-reineke/indent-blankline.nvim'
@@ -44,7 +41,7 @@ return require('packer').startup(function()
     use 'evanleck/vim-svelte'
     use 'sukima/xmledit'
     use {
-        'nvim-telescope/telescope.nvim', tag = "0.1.1",
+        'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 end)

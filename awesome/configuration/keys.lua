@@ -43,9 +43,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "Return", function() awful.spawn(terminal) end),
     awful.key({ modkey }, "r", function() awful.util.spawn("rofi -show drun") end),
     awful.key({ modkey }, "w", function() awful.util.spawn("rofi -show window") end),
-    awful.key({ modkey }, "b", function() awful.util.spawn("librewolf") end),
+    awful.key({ modkey }, "b", function() awful.util.spawn("waterfox") end),
     awful.key({ modkey }, "t", function() awful.util.spawn("telegram-desktop") end),
     awful.key({ modkey }, "d", function() awful.util.spawn("discord") end),
+    awful.key({ modkey }, "z", function() awful.util.spawn("zathura") end),
 
     --- media ---
     awful.key({}, "XF86AudioRaiseVolume", function() 

@@ -11,7 +11,7 @@ local nconf = naughty.config
 theme.font = "JetBrainsMono NF"
 
 --- color scheme ---
-theme.bg       = "#1c1b17"
+theme.bg       = "#302f29"
 theme.fg       = "#e5e0c9"
 theme.black    = "#141412"
 theme.red      = "#f26d4f"
@@ -34,7 +34,7 @@ theme.lcyan    = "#80b5b2"
 theme.dcyan    = "#5f7776"
 theme.disabled = "#8c8775"
 
-theme.alt_bg   = "#302f29"
+theme.alt_bg   = "#1c1d17"
 
 --- general window ---
 theme.useless_gap   = 7
@@ -62,7 +62,7 @@ theme.menu_bg_normal = theme.bg
 theme.menu_bg_focus  = theme.bg
 theme.menu_fg_normal = theme.fg
 theme.menu_fg_focus  = theme.fg
-theme.menu_border_color = theme.lcyan
+theme.menu_border_color = theme.lyellow
 theme.menu_border_width = 2
 
 --- status bar ---
@@ -95,7 +95,7 @@ theme.titlebar_maximized_button_normal_inactive_press = gears.surface.load_from_
 theme.titlebar_maximized_button_focus_inactive = gears.surface.load_from_shape(30, 30, gears.shape.circle, theme.lgreen)
 theme.titlebar_maximized_button_focus_inactive_hover = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.green)
 theme.titlebar_maximized_button_focus_inactive_press = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.dgreen)
-theme.titlebar_maximized_button_normal_active = gears.surface.load_from_shape(30, 30, gears.shape.circle, theme.lgreen)
+theme.titlebar_maximized_button_normal_active = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.lgreen)
 theme.titlebar_maximized_button_normal_active_hover = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.green)
 theme.titlebar_maximized_button_normal_active_press = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.dgreen)
 theme.titlebar_maximized_button_focus_active = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.green)
@@ -107,7 +107,7 @@ theme.titlebar_ontop_button_normal_inactive_press = gears.surface.load_from_shap
 theme.titlebar_ontop_button_focus_inactive = gears.surface.load_from_shape(30, 30, gears.shape.circle, theme.lblue)
 theme.titlebar_ontop_button_focus_inactive_hover = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.blue)
 theme.titlebar_ontop_button_focus_inactive_press = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.dblue)
-theme.titlebar_ontop_button_normal_active = gears.surface.load_from_shape(30, 30, gears.shape.circle, theme.lblue)
+theme.titlebar_ontop_button_normal_active = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.lblue)
 theme.titlebar_ontop_button_normal_active_hover = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.blue)
 theme.titlebar_ontop_button_normal_active_press = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.dblue)
 theme.titlebar_ontop_button_focus_active = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.blue)
@@ -115,6 +115,6 @@ theme.titlebar_ontop_button_focus_active_hover = gears.surface.load_from_shape(7
 theme.titlebar_ontop_button_focus_active_press = gears.surface.load_from_shape(70, 30, gears.shape.rounded_bar, theme.dblue)
 
 --- wallpaper ---
-theme.wallpaper = "/usr/share/backgrounds/phoenix_cream.png"
+theme.wallpaper = "/usr/share/backgrounds/phoenix_dark_1080.png"
 
 return theme

@@ -13,7 +13,7 @@ client.connect_signal("request::titlebars", function(c)
         position = "top",
         size = dpi(30),
         font = beautiful.font .. "Bold 12",
-        bg = beautiful.alt_bg,
+        bg = beautiful.bg,
     })
     :setup({
         layout = wibox.layout.align.horizontal,

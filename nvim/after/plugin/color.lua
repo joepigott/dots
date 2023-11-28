@@ -11,7 +11,7 @@ local palettes = {
         pink    = { base = "#c48398", bright = "#ea7097", dim = "#936473" },
 
         bg0 = "#141412",
-        bg1 = "#1c1b17",
+        bg1 = "#1c1d17",
         bg2 = "#3d3d35",
         bg3 = "#5e5d52",
         bg4 = "#807e70",
