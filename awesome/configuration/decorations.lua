@@ -8,14 +8,19 @@ client.connect_signal("request::titlebars", function(c)
         return
     end
 
-    awful
-        .titlebar(c, {
-        position = "top",
-        size = dpi(30),
-        font = beautiful.font .. "Bold 12",
-        bg = beautiful.bg,
-    })
-    :setup({
+    if c.maximized then
+        return
+    end
+
+    awful.titlebar(
+        c, 
+        {
+            position = "top",
+            size = dpi(30),
+            font = beautiful.font .. "Bold 12",
+            bg = beautiful.bg,
+        }
+    ):setup({
         layout = wibox.layout.align.horizontal,
         expand = "none",
         {

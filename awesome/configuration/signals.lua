@@ -23,12 +23,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 client.connect_signal("property::fullscreen", function(c)
     if c.fullscreen then
-        c.shape = gears.shape.rectangle
         c.screen.wibar.visible = false
     else
-        c.shape = function(cr, w, h)
-            gears.shape.rounded_rect(cr, w, h, 15)
-        end
         c.screen.wibar.visible = true
     end
 end)

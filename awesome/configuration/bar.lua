@@ -60,17 +60,51 @@ return function(s)
 
     local date = wibox.widget({
         widget = wibox.widget.textclock,
-        format = "<span color='" .. beautiful.lgreen .. "'>%B %d, %Y</span>",
+        format = "<span color='" .. beautiful.lyellow.. "'>%B %d, %Y</span>",
         align = "center",
         valign = "center",
         font = beautiful.font .. " Bold 14"
     })
     local time = wibox.widget({
         widget = wibox.widget.textclock,
-        format = "<span color='" .. beautiful.lgreen .. "'>%I:%M %P</span>",
+        format = "<span color='" .. beautiful.lyellow.. "'>%I:%M %P</span>",
         align = "center",
         valign = "center",
         font = beautiful.font .. " Bold 14"
+    })
+
+    local weather_inner = awful.widget.watch(
+        "weather-text",
+        15,
+        nil,
+        wibox.widget({
+            widget = wibox.widget.textbox,
+            font = beautiful.font .. " Bold 14"
+        })
+    )
+
+    local weather = wibox.container.place({
+        widget = weather_inner,
+        valign = "center"
+    })
+
+    local notif_button_inner = wibox.widget({
+        widget = wibox.widget.textbox,
+        markup = "<span color='" .. beautiful.lyellow .. "'>󰂚</span>",
+        align = "center",
+        valign = "center",
+        font = beautiful.font .. " Bold 26"
+    })
+    notif_button_inner:buttons(gears.table.join(
+        awful.button({}, 1, function()
+            notif_button_inner.checked = not notif_button_inner.checked
+            awesome.emit_signal("notifs::toggle_panel")
+        end)
+    ))
+
+    local notif_button = wibox.container.place({
+        widget = notif_button_inner,
+        valign = "center"
     })
 
     local taglist_buttons = gears.table.join(
@@ -108,7 +142,7 @@ return function(s)
                     {
                         widget = wibox.container.background,
                         forced_height = dpi(10),
-                        shape = gears.shape.rounded_bar,
+                        shape = gears.shape.rectangle,
                     },
                 })
 
@@ -123,7 +157,7 @@ return function(s)
                 self:set_widget(indicator)
 
                 if c3.selected then
-                    self.widget.children[1].bg = beautiful.lgreen
+                    self.widget.children[1].bg = beautiful.lyellow
                     self.indicator_animation:set(dpi(35))
                 elseif #c3:clients() == 0 then
                     self.widget.children[1].bg = beautiful.disabled
@@ -135,7 +169,7 @@ return function(s)
             end,
             update_callback = function(self, c3, _)
                 if c3.selected then
-                    self.widget.children[1].bg = beautiful.lgreen
+                    self.widget.children[1].bg = beautiful.lyellow
                     self.indicator_animation:set(dpi(35))
                 elseif #c3:clients() == 0 then
                     self.widget.children[1].bg = beautiful.disabled
@@ -154,7 +188,7 @@ return function(s)
         position = "top",
         height = 35,
         screen = s,
-        shape = gears.shape.rounded_bar,
+        shape = gears.shape.rectangle,
         margins = {
             top = 14,
             left = 14,
@@ -170,6 +204,8 @@ return function(s)
             layout = wibox.layout.fixed.horizontal,
             space,
             date,
+            sep,
+            weather
         },
         {
             layout = wibox.layout.fixed.horizontal,
@@ -177,10 +213,20 @@ return function(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
---            volume_widget,
-            space,
+            -- volume_widget,
+            {
+                {
+                    widget = wibox.widget.systray,
+                    base_size = 25,
+                },
+                valign = "center",
+                widget = wibox.container.place
+            },
+            sep,
             time,
             space,
+            notif_button,
+            space
         }
     }
 end

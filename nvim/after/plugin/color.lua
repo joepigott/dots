@@ -1,30 +1,30 @@
 local palettes = {
     all = {
-        red     = { base = "#d18777", bright = "#f26d4f", dim = "#7c5248"},
-        green   = { base = "#a0b77c", bright = "#a5dd4f", dim = "#626b55" },
-        yellow  = { base = "#c6b675", bright = "#ddc14d", dim = "#7f795f" },
-        blue    = { base = "#6e8db5", bright = "#4d8ee2", dim = "#656d77" },
-        magenta = { base = "#a589af", bright = "#b46dce", dim = "#74657a" },
-        cyan    = { base = "#80b5b2", bright = "#4bc6c0", dim = "#5f7776" },
-        white   = { base = "#e5e0c9", bright = "#edeade", dim = "#8c8775" },
+        red     = { base = "#e68a8a", bright = "#f2b1b1", dim = "#7c5248"},
+        green   = { base = "#99cc99", bright = "#b2d8b2", dim = "#626b55" },
+        yellow  = { base = "#fad7a0", bright = "#f7dcb4", dim = "#7f795f" },
+        blue    = { base = "#6699cc", bright = "#87cefa", dim = "#656d77" },
+        magenta = { base = "#c8a2c8", bright = "#d8bfd8", dim = "#74657a" },
+        cyan    = { base = "#6fc3b2", bright = "#64dbdb", dim = "#5f7776" },
+        white   = { base = "#e2cebe", bright = "#f2f2f2", dim = "#8c8775" },
         orange  = { base = "#d39972", bright = "#ed8f50", dim = "#9e775d" },
         pink    = { base = "#c48398", bright = "#ea7097", dim = "#936473" },
 
-        bg0 = "#141412",
-        bg1 = "#1c1d17",
-        bg2 = "#3d3d35",
-        bg3 = "#5e5d52",
-        bg4 = "#807e70",
+        bg0 = "#141414",
+        bg1 = "#000000",
+        bg2 = "#3d3d3d",
+        bg3 = "#5e5e5e",
+        bg4 = "#707070",
 
-        fg0 = "#edeade",
-        fg1 = "#e5e0c9",
-        fg2 = "#c3bfab",
-        fg3 = "#a29f8e",
+        fg0 = "#f2f2f2",
+        fg1 = "#c5c5c5",
+        fg2 = "#adadad",
+        fg3 = "#a2a2a2",
 
-        comment = "#8c8775",
+        comment = "#5d5d5d",
 
-        sel0 = "#302f29",
-        sel1 = "#302f29",
+        sel0 = "#2f2f2f",
+        sel1 = "#2f2f2f",
     }
 }
 
@@ -80,6 +80,6 @@ require("nightfox").setup({
     groups = groups
 })
 vim.cmd("colorscheme nightfox") -- first call initializes
-vim.cmd("colorscheme nightfox") -- second fixes blue indent lines (??)
+vim.cmd("colorscheme nightfox") -- second fixed blue indent lines (?)
 
 require("colorizer").setup({})

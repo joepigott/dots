@@ -3,7 +3,7 @@ configuration {
   display-window: "Windows: ";
   drun-display-format: "{icon} {name}";
   modi: "window,run,drun";
-  font: "JetBrainsMono NF Bold 15";
+  font: "Terminus (TTF) Bold 16";
   show-icons: true;
   icon-theme: "Papirus";
 }
@@ -11,23 +11,23 @@ configuration {
 @theme "/dev/null"
 
 * {
-  red      : #f26d4f;
-  lred     : #d18777;
-  green    : #a5dd4f;
-  lgreen   : #a0b77c;
-  yellow   : #ddc14d;
-  lyellow  : #c6bc75;
-  blue     : #4d8ee2;
-  lblue    : #6e8db5;
-  magenta  : #b46dce;
-  lmagenta : #a589af;
-  cyan     : #4bc6c0;
-  lcyan    : #80b5b2;
+  red      : #e68a8a;
+  lred     : #f2b1b1;
+  green    : #99cc99;
+  lgreen   : #b2d8b2;
+  yellow   : #fad7a0;
+  lyellow  : #f7dcb4;
+  blue     : #6699cc;
+  lblue    : #87cefa;
+  magenta  : #c8a2c8;
+  lmagenta : #d8bfd8;
+  cyan     : #6fc3b2;
+  lcyan    : #64dbdb;
 
-  fg       : #e5e0c9;
-  bg       : #1c1b17;
+  fg       : #f2f2f2;
+  bg       : #171717;
 
-  disabled : #8c8775;
+  disabled : #5d5d5d;
 
   background-color: @bg;
 
@@ -41,19 +41,18 @@ window {
   padding: 12;
 
   border: 2;
-  border-color: @lgreen;
-  border-radius: 15px;
+  border-color: @lyellow;
 }
 
 element {
   padding: 8;
   text-color: @fg;
-  border-radius: 15px;
 }
 
 element selected {
-  text-color: @bg;
-  background-image: linear-gradient(#e5e0c9, #1c1b17);
+  text-color: @fg;
+  border: 2;
+  border-color: @lyellow;
 }
 
 element-text {

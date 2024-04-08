@@ -61,9 +61,7 @@ awful.rules.rules = {
         },
 
         callback = function(c)
-            c.shape = function(cr, w, h)
-                gears.shape.rounded_rect(cr, w, h, 15)
-            end
+            c.shape = gears.shape.rectangle
         end
     },
 

@@ -20,14 +20,14 @@ set guioptions none
 
 # colors
 
-set default-bg "#1c1b17"
-set default-fg "#e5e0c9"
-set recolor-darkcolor "#e5e0c9"
-set recolor-lightcolor "#1c1b17"
-set highlight-color "#c6b675"
-set highlight-active-color "#a0b77c"
-set inputbar-bg "#141412"
-set inputbar-fg "#e5e0c9"
+set default-bg "#141414"
+set default-fg "#f2f2f2"
+set recolor-darkcolor "#f2f2f2"
+set recolor-lightcolor "#141414"
+set highlight-color "#fad7a0"
+set highlight-active-color "#99cc99"
+set inputbar-bg "#141414"
+set inputbar-fg "#f2f2f2"
 
 set recolor true
 map i recolor

@@ -40,8 +40,10 @@ return require('packer').startup(function()
     use 'tikhomirov/vim-glsl'
     use 'evanleck/vim-svelte'
     use 'sukima/xmledit'
+    use 'nvim-lua/plenary.nvim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use 'github/copilot.vim'
 end)

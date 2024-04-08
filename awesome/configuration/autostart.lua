@@ -1,7 +1,8 @@
 require("configuration.init")
 
-awful.spawn("picom --experimental-backends")
+awful.spawn("compfy")
 awful.spawn("xscreensaver --no-splash")
+awful.spawn("r-quick-share")
 
 --- daily fortune ---
-awful.spawn.with_shell("notify-send \"$(cowsay $(fortune))\" -t 0")
+awful.spawn.with_shell("sleep 1 && notify-send \"$(cowsay $(fortune))\" -t 0")

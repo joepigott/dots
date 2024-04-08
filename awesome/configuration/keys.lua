@@ -1,9 +1,7 @@
 require("configuration.init")
-require("configuration.menu")
 
 --- mouse ---
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function() mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
@@ -38,6 +36,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "q", awesome.quit),
     awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("shutdown now") end),
     awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("reboot") end),
+    awful.key({ modkey }, "n", function() awesome.emit_signal("notifs::toggle_panel") end),
     
     --- appplications ---
     awful.key({ modkey }, "Return", function() awful.spawn(terminal) end),

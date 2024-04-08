@@ -18,7 +18,7 @@ do
 
         naughty.notify({
             preset = naughty.config.presets.critical,
-            title = "Oops, an error happened!",
+            title = "AwesomeMW error...",
             text = tostring(err)
         })
         in_error = false
@@ -35,7 +35,7 @@ awful.layout.layouts = {
 local function set_wallpaper(s)
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
-        
+
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
@@ -51,4 +51,5 @@ awful.screen.connect_for_each_screen(function(s)
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
     require("configuration.bar")(s)
+    require("configuration.notifications.notif_panel")(s)
 end)
