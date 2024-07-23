@@ -21,6 +21,15 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+client.connect_signal("property::maximized", function(c)
+    -- assert that the client is not floating when maximized. it should revert
+    -- to its original state when unmaximized
+    if c.maximized then
+        c.floating = false
+    end
+
+end)
+
 client.connect_signal("property::fullscreen", function(c)
     if c.fullscreen then
         c.screen.wibar.visible = false

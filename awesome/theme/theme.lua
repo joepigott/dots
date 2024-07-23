@@ -8,7 +8,7 @@ local shapes = require("gears.shape")
 local naughty = require("naughty")
 local nconf = naughty.config
 
-theme.font = "Terminus (TTF)"
+theme.font = "TerminessNerdFont Mono"
 
 --- color scheme ---
 theme.bg       = "#171717"
@@ -110,6 +110,6 @@ theme.bg_systray = theme.bg
 theme.systray_icon_spacing = 10
 
 --- wallpaper ---
-theme.wallpaper = "/usr/share/backgrounds/mandelbrot_1080.png"
+theme.wallpaper = "/usr/share/backgrounds/scadutree.png"
 
 return theme

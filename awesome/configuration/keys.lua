@@ -30,21 +30,29 @@ globalkeys = gears.table.join(
             client.focus:raise()
         end
     end),
+    awful.key({ modkey, "Control" }, "n", function()
+        local c = awful.client.restore()
+
+        if c then
+            client.focus = c
+            c:raise()
+        end
+    end),
     
     --- system controls ---
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift" }, "q", awesome.quit),
     awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("shutdown now") end),
     awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("reboot") end),
-    awful.key({ modkey }, "n", function() awesome.emit_signal("notifs::toggle_panel") end),
+    awful.key({ modkey }, "n", function() naughty.emit_signal("notifs::toggle_panel") end),
+    awful.key({ modkey, "Shift" }, "c", function() awful.spawn("killall compfy") end),
+    awful.key({ modkey, "Control" }, "c", function() awful.spawn("compfy") end),
     
     --- appplications ---
     awful.key({ modkey }, "Return", function() awful.spawn(terminal) end),
     awful.key({ modkey }, "r", function() awful.util.spawn("rofi -show drun") end),
     awful.key({ modkey }, "w", function() awful.util.spawn("rofi -show window") end),
     awful.key({ modkey }, "b", function() awful.util.spawn("waterfox") end),
-    awful.key({ modkey }, "t", function() awful.util.spawn("telegram-desktop") end),
-    awful.key({ modkey }, "d", function() awful.util.spawn("discord") end),
     awful.key({ modkey }, "z", function() awful.util.spawn("zathura") end),
 
     --- media ---

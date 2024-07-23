@@ -6,6 +6,38 @@ local dpi = xresources.apply_dpi
 local wibox = require("wibox")
 
 return function (s)
+    local notif_list = {
+        layout = wibox.layout.fixed.vertical
+    }
+
+    table.insert(notif_list, {
+        {
+            widget = wibox.widget.textbox,
+            text = "no notifications"
+        },
+        widget = wibox.container.place,
+        align = "center",
+        fill_vertical = true
+    })
+
+    local notif_widget =  {
+        layout = wibox.layout.fixed.vertical,
+        {
+            {
+                {
+                    text = "notifications",
+                    font = beautiful.font .. " Bold 18",
+                    widget = wibox.widget.textbox
+                },
+                align = "center",
+                widget = wibox.container.place
+            },
+            top = 15,
+            widget = wibox.container.margin
+        },
+        notif_list
+    }
+
     s.notification_panel = awful.popup({
         type = "dock",
         screen = s,
@@ -13,7 +45,7 @@ return function (s)
         maximum_height = s.geometry.height,
         minimum_width = dpi(550),
         maximum_width = dpi(550),
-        bg = beautiful.bg .. "aa",
+        bg = beautiful.bg .. "88",
         border_width = beautiful.border_width,
         border_color = beautiful.lgreen,
         ontop = true,
@@ -25,78 +57,16 @@ return function (s)
                 {honor_workarea = true, margins = 2 * beautiful.useless_gap}
             )
         end,
-        widget = {
-            {
-                {
-                    {
-                        text = "notifications",
-                        font = beautiful.font .. " Bold 18",
-                        widget = wibox.widget.textbox
-                    },
-                    align = "center",
-                    widget = wibox.container.place
-                },
-                top = 15,
-                widget = wibox.container.margin
-            },
-            -- {
-            --     base_layout = wibox.widget {
-            --         forced_height = 30,
-            --         spacing       = 3,
-            --         layout        = wibox.layout.fixed.vertical
-            --     },
-            --     widget_template = {
-            --         {
-            --             naughty.widget.icon,
-            --             {
-            --                 naughty.widget.title,
-            --                 naughty.widget.message,
-            --                 {
-            --                     layout = wibox.widget {
-            --                         -- Adding the wibox.widget allows to share a
-            --                         -- single instance for all spacers.
-            --                         spacing_widget = wibox.widget {
-            --                             orientation = "horizontal",
-            --                             span_ratio  = 0.9,
-            --                             widget      = wibox.widget.separator,
-            --                         },
-            --                         spacing = 3,
-            --                         layout  = wibox.layout.flex.vertical
-            --                     },
-            --                     widget = naughty.list.widgets,
-            --                 },
-            --                 layout = wibox.layout.align.horizontal
-            --             },
-            --             spacing = 10,
-            --             fill_space = true,
-            --             layout  = wibox.layout.fixed.vertical
-            --         },
-            --         margins = 5,
-            --         widget  = wibox.container.margin
-            --     },
-            --     widget = naughty.list.notifications,
-            -- },
-            -- -- Add a button to dismiss all notifications, because why not.
-            -- {
-            --     {
-            --         markup = "<span color = '" .. beautiful.bg .. "'>dismiss all</span>",
-            --         font = beautiful.font .. " Bold 14",
-            --         halign = "center",
-            --         valign = "center",
-            --         widget = wibox.widget.textbox
-            --     },
-            --     buttons = gears.table.join(
-            --         awful.button({ }, 1, function() naughty.destroy_all_notifications() end)
-            --     ),
-            --     bg = beautiful.lgreen,
-            --     forced_height = dpi(30),
-            --     widget = wibox.container.background
-            -- },
-            -- layout = wibox.layout.align.vertical
-        }
+        widget = notif_widget
     })
 
-    awesome.connect_signal("notifs::toggle_panel", function()
+    naughty.connect_signal("notifs::toggle_panel", function()
         s.notification_panel.visible = not s.notification_panel.visible
+    end)
+
+    naughty.connect_signal("added", function(n)
+    end)
+
+    naughty.connect_signal("destroyed", function(n)
     end)
 end

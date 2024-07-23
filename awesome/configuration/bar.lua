@@ -1,5 +1,6 @@
 require("configuration.init")
 
+local naughty = require("naughty")
 local wibox = require("wibox")
 local animation = require("modules.animation")
 local xrsrc = require("beautiful.xresources")
@@ -74,7 +75,7 @@ return function(s)
     })
 
     local weather_inner = awful.widget.watch(
-        "weather-text",
+        "weather-text --units imperial",
         15,
         nil,
         wibox.widget({
@@ -98,7 +99,7 @@ return function(s)
     notif_button_inner:buttons(gears.table.join(
         awful.button({}, 1, function()
             notif_button_inner.checked = not notif_button_inner.checked
-            awesome.emit_signal("notifs::toggle_panel")
+            naughty.emit_signal("notifs::toggle_panel")
         end)
     ))
 

@@ -13,5 +13,3 @@ require('lualine').setup({
     },
     sections = sections
 })
-
-require("nvterm").setup({})
