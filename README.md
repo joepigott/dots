@@ -12,6 +12,6 @@ comes to the core of the rice.
 if you run into any problems, feel free to open an issue and i will more than 
 likely not get to it but i will try. :)
 
-![Image](screenshots/2024--09-02-142938_2256x1504_scrot.png)
-![Image](screenshots/2024--09-02-144349_2256x1504_scrot.png)
-![Image](screenshots/2024--09-02-144417_2256x1504_scrot.png)
+![Image](screenshots/2024-09-02-142938_2256x1504_scrot.png)
+![Image](screenshots/2024-09-02-144349_2256x1504_scrot.png)
+![Image](screenshots/2024-09-02-144417_2256x1504_scrot.png)
