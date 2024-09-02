@@ -1,5 +1,7 @@
 require("configuration.init")
 
+require("configuration.bar")
+
 --- mouse ---
 root.buttons(gears.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
@@ -42,9 +44,9 @@ globalkeys = gears.table.join(
     --- system controls ---
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift" }, "q", awesome.quit),
+    awful.key({ modkey }, "l", function() awful.spawn("light-locker-command -l") end),
     awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("shutdown now") end),
     awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("reboot") end),
-    awful.key({ modkey }, "n", function() naughty.emit_signal("notifs::toggle_panel") end),
     awful.key({ modkey, "Shift" }, "c", function() awful.spawn("killall compfy") end),
     awful.key({ modkey, "Control" }, "c", function() awful.spawn("compfy") end),
     
@@ -57,13 +59,16 @@ globalkeys = gears.table.join(
 
     --- media ---
     awful.key({}, "XF86AudioRaiseVolume", function() 
-        awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") 
+        -- awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%") 
+        volume:inc(5)
     end),
     awful.key({}, "XF86AudioLowerVolume", function()
-        awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") 
+        -- awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%") 
+        volume:dec(5)
     end),
     awful.key({}, "XF86AudioMute", function()
-        awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") 
+        -- awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") 
+        volume:toggle()
     end),
     awful.key({}, "XF86AudioPlay", function()
         awful.util.spawn("playerctl play-pause") 
@@ -94,11 +99,11 @@ clientkeys = gears.table.join(
         c:raise()
     end),
     awful.key({ modkey, "Control" }, "m", function(c)
-        c.maximized_vertical = not c.maximized_vertical
+        c.maximized = true
         c:raise()
     end),
     awful.key({ modkey, "Shift" }, "m", function(c)
-        c.maximized_horizontal = not c.maximized_horizontal
+        c.maximized = false
         c:raise()
     end),
     awful.key({ modkey }, "p", function(c)

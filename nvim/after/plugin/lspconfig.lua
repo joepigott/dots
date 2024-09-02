@@ -14,6 +14,7 @@ lsp.cssls.setup({})
 lsp.clangd.setup({})
 lsp.cmake.setup({})
 lsp.zls.setup({})
+lsp.bashls.setup({})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

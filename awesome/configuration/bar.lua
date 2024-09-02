@@ -6,69 +6,21 @@ local animation = require("modules.animation")
 local xrsrc = require("beautiful.xresources")
 local dpi = xrsrc.apply_dpi
 
---local function trim(s)
---   return (s:gsub("^%s*(.-)%s*$", "%1"))
---end
---
----- volume widget stuff --
---
---local volume_widget = wibox.widget({
---    {
---        min_value = 0,
---        max_value = 50,
---        border_width = 0,
---        forced_height = 20,
---        forced_width = 100,
---        margins = {
---            top = 13,
---            bottom = 13,
---        },
---        shape = gears.shape.rounded_bar,
---        bar_shape = gears.shape.rounded_bar,
---        color = beautiful.lgreen,
---        background_color = beautiful.disabled,
---        id = "vol",
---        widget = wibox.widget.progressbar
---    },
---    layout = wibox.layout.fixed.horizontal,
---    set_volume = function(self, vol)
---        self.vol.value = vol
---    end
---})
---
---gears.timer {
---    timeout = .1,
---    call_now = true,
---    autostart = true,
---    callback = function()
---        awful.spawn.easy_async("pactl get-sink-volume @DEFAULT_SINK@", 
---        function(out)
---            local tokens = {}
---            for token in string.gmatch(out, "[^/]+") do
---                table.insert(tokens, token)
---            end
---            local result = trim(tokens[2])
---            result = string.sub(result, 1, -2)
---            volume_widget.volume = tonumber(result)
---        end)
---    end
---}
-
 return function(s)
-    local space = wibox.widget.textbox("   ") -- spacing widget
-    local sep = wibox.widget.textbox("<span color='" .. beautiful.fg .. "'> | </span>") -- separator widget
+    local space = wibox.widget.textbox("  ") -- spacing widget
+    local sep = wibox.widget.textbox("<span color='" .. beautiful.white .. "'> | </span>") -- separator widget
     sep.font = beautiful.font .. " Bold 14"
 
     local date = wibox.widget({
         widget = wibox.widget.textclock,
-        format = "<span color='" .. beautiful.lyellow.. "'>%B %d, %Y</span>",
+        format = "<span color='" .. beautiful.cyan .. "'>%m/%d/%y</span>",
         align = "center",
         valign = "center",
         font = beautiful.font .. " Bold 14"
     })
     local time = wibox.widget({
         widget = wibox.widget.textclock,
-        format = "<span color='" .. beautiful.lyellow.. "'>%I:%M %P</span>",
+        format = "<span color='" .. beautiful.cyan .. "'>%I:%M %P</span>",
         align = "center",
         valign = "center",
         font = beautiful.font .. " Bold 14"
@@ -76,7 +28,7 @@ return function(s)
 
     local weather_inner = awful.widget.watch(
         "weather-text --units imperial",
-        15,
+        60,
         nil,
         wibox.widget({
             widget = wibox.widget.textbox,
@@ -84,29 +36,31 @@ return function(s)
         })
     )
 
-    local weather = wibox.container.place({
-        widget = weather_inner,
-        valign = "center"
+    local weather = wibox.widget({
+        weather_inner,
+        fg = beautiful.yellow,
+        widget = wibox.container.background
     })
 
-    local notif_button_inner = wibox.widget({
-        widget = wibox.widget.textbox,
-        markup = "<span color='" .. beautiful.lyellow .. "'>󰂚</span>",
-        align = "center",
-        valign = "center",
-        font = beautiful.font .. " Bold 26"
-    })
-    notif_button_inner:buttons(gears.table.join(
-        awful.button({}, 1, function()
-            notif_button_inner.checked = not notif_button_inner.checked
-            naughty.emit_signal("notifs::toggle_panel")
-        end)
-    ))
+    local vpn_inner = awful.widget.watch(
+        "vpnstatus.sh",
+        60,
+        nil,
+        wibox.widget({
+            widget = wibox.widget.textbox,
+            font = beautiful.font .. " Bold 14"
+        })
+    )
 
-    local notif_button = wibox.container.place({
-        widget = notif_button_inner,
-        valign = "center"
+    local vpn = wibox.widget({
+        vpn_inner,
+        fg = beautiful.yellow,
+        widget = wibox.container.background
     })
+
+    local battery = require("battery-widget")
+
+    volume = require("awesome-wm-widgets.pactl-widget.volume")
 
     local taglist_buttons = gears.table.join(
         awful.button({ }, 1, function(t) t:view_only() end),
@@ -158,25 +112,25 @@ return function(s)
                 self:set_widget(indicator)
 
                 if c3.selected then
-                    self.widget.children[1].bg = beautiful.lyellow
+                    self.widget.children[1].bg = beautiful.cyan
                     self.indicator_animation:set(dpi(35))
                 elseif #c3:clients() == 0 then
-                    self.widget.children[1].bg = beautiful.disabled
+                    self.widget.children[1].bg = beautiful.red
                     self.indicator_animation:set(dpi(10))
                 else
-                    self.widget.children[1].bg = beautiful.disabled
+                    self.widget.children[1].bg = beautiful.red
                     self.indicator_animation:set(dpi(18))
                 end
             end,
             update_callback = function(self, c3, _)
                 if c3.selected then
-                    self.widget.children[1].bg = beautiful.lyellow
+                    self.widget.children[1].bg = beautiful.cyan
                     self.indicator_animation:set(dpi(35))
                 elseif #c3:clients() == 0 then
-                    self.widget.children[1].bg = beautiful.disabled
+                    self.widget.children[1].bg = beautiful.red
                     self.indicator_animation:set(dpi(10))
                 else
-                    self.widget.children[1].bg = beautiful.disabled
+                    self.widget.children[1].bg = beautiful.red
                     self.indicator_animation:set(dpi(18))
                 end
             end
@@ -187,13 +141,15 @@ return function(s)
     s.wibar = awful.wibar({
         stretch = true,
         position = "top",
-        height = 35,
+        height = dpi(35),
         screen = s,
-        shape = gears.shape.rectangle,
+        shape = function(cr, w, h)
+            gears.shape.octogon(cr, w, h, 25)
+        end,
         margins = {
-            top = 14,
-            left = 14,
-            right = 14,
+            top = 20,
+            left = 20,
+            right = 20,
             bottom = 0
         }
     })
@@ -214,20 +170,54 @@ return function(s)
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            -- volume_widget,
             {
                 {
                     widget = wibox.widget.systray,
-                    base_size = 25,
+                    base_size = 40,
                 },
                 valign = "center",
                 widget = wibox.container.place
             },
             sep,
+            {
+                {
+                    widget = volume {
+                        widget_type = "horizontal_bar",
+                        main_color = beautiful.yellow,
+                        mute_color = beautiful.disabled,
+                        bg_color = beautiful.alt_bg2,
+                        width = 75,
+                        margins = 27.5,
+                        with_icon = false,
+                        tooltip = true,
+                    },
+                    base_size = 200,
+                },
+                valign = "center",
+                widget = wibox.container.place,
+            },
+            space,
+            battery {
+                ac = "ACAD",
+                adapter = "BAT1",
+                percent_colors = {
+                    { 20, beautiful.red },
+                    { 999, beautiful.green },
+                },
+                listen = true,
+                timeout = 10,
+                widget_text = "${color_on}${percent}%${color_off}",
+                widget_font = beautiful.font .. " Bold 14",
+                alert_threshold = 20,
+                alert_timeout = 0,
+                alert_title = "Low Battery",
+                alert_text = "Plug in now to reduce battery wear"
+            },
+            space,
+            vpn,
+            sep,
             time,
             space,
-            notif_button,
-            space
         }
     }
 end

@@ -5,7 +5,7 @@ awful = require("awful")
 naughty = require("naughty")
 beautiful = require("beautiful")
 
-terminal = "cool-retro-term"
+terminal = "alacritty"
 editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
 

@@ -13,11 +13,11 @@ client.connect_signal("request::titlebars", function(c)
     end
 
     awful.titlebar(
-        c, 
+        c,
         {
             position = "top",
             size = dpi(30),
-            font = beautiful.font .. "Bold 12",
+            font = beautiful.font .. " Bold 12",
             bg = beautiful.bg,
         }
     ):setup({

@@ -14,7 +14,13 @@ awful.rules.rules = {
             buttons = clientbuttons,
             screen = awful.screen.preferred,
             placement = awful.placement.no_overlap+awful.placement.no_offscreen
-        }
+        },
+
+        callback = function(c)
+            c.shape = function(cr, w, h)
+                gears.shape.octogon(cr, w, h, 25)
+            end
+        end
     },
 
     {
@@ -52,27 +58,5 @@ awful.rules.rules = {
             floating = true
         }
     },
-
-    {
-        rule = {},
-
-        except = {
-            class = "Polybar"
-        },
-
-        callback = function(c)
-            c.shape = gears.shape.rectangle
-        end
-    },
-
-    {
-        rule = {
-            class = "Polybar"
-        },
-
-        callback = function(c)
-            c.border_width = 0
-        end
-    }
 }
 

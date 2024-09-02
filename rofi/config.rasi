@@ -1,9 +1,9 @@
 configuration {
-  display-drun: "  :";
+  display-drun: " Run: ";
   display-window: "Windows: ";
   drun-display-format: "{icon} {name}";
   modi: "window,run,drun";
-  font: "Terminus (TTF) Bold 16";
+  font: "TerminessNerdFont Bold 32";
   show-icons: true;
   icon-theme: "Papirus";
 }
@@ -11,21 +11,24 @@ configuration {
 @theme "/dev/null"
 
 * {
-  red      : #e68a8a;
-  lred     : #f2b1b1;
-  green    : #99cc99;
-  lgreen   : #b2d8b2;
-  yellow   : #fad7a0;
-  lyellow  : #f7dcb4;
-  blue     : #6699cc;
-  lblue    : #87cefa;
-  magenta  : #c8a2c8;
-  lmagenta : #d8bfd8;
-  cyan     : #6fc3b2;
-  lcyan    : #64dbdb;
+  red      : #de524a;
+  lred     : #ff7162;
+  green    : #22d87a;
+  lgreen   : #c9ee5e;
+  yellow   : #ecc747;
+  lyellow  : #edd682;
+  blue     : #2366c3;
+  lblue    : #7fb4ff;
+  magenta  : #9132e8;
+  lmagenta : #c17fff;
+  cyan     : #55e7f0;
+  lcyan    : #a7ecef;
 
-  fg       : #f2f2f2;
-  bg       : #171717;
+  white    : #e5e9e6;
+  black    : #130912;
+
+  bg: @black;
+  fg: @lgreen;
 
   disabled : #5d5d5d;
 
@@ -37,22 +40,23 @@ configuration {
 }
 
 window {
-  width: 30%;
-  padding: 12;
+  width: 50%;
+  height: 47%;
+  padding: 50;
 
   border: 2;
-  border-color: @lyellow;
+  border-color: @lgreen;
 }
 
 element {
-  padding: 8;
+  padding: 28;
   text-color: @fg;
 }
 
 element selected {
   text-color: @fg;
   border: 2;
-  border-color: @lyellow;
+  border-color: @lgreen;
 }
 
 element-text {
@@ -74,10 +78,9 @@ entry {
 }
 
 prompt {
-  background-color: @bg;
+  background-color: @lgreen;
   padding: 12;
-  text-color: @fg;
-
+  text-color: @bg;
   margin-bottom: 50;
 }
 
@@ -87,6 +90,6 @@ inputbar {
 
 listview {
   background-color: @bg;
-  columns: 1;
+  columns: 2;
   lines: 8;
 }

@@ -1,6 +1,7 @@
 require("configuration.init")
 
 local awful = require("awful")
+local gears = require("gears")
 
 client.connect_signal("manage", function(c)
     if awesome.startup
@@ -33,7 +34,11 @@ end)
 client.connect_signal("property::fullscreen", function(c)
     if c.fullscreen then
         c.screen.wibar.visible = false
+        c.shape = gears.shape.rectangle
     else
         c.screen.wibar.visible = true
+        c.shape = function(cr, w, h)
+            gears.shape.octogon(cr, w, h, 25)
+        end
     end
 end)

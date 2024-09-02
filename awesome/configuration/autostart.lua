@@ -1,8 +1,9 @@
 require("configuration.init")
 
-awful.spawn("compfy")
-awful.spawn("xscreensaver --no-splash")
-awful.spawn("rquickshare")
+awful.spawn("ssh-agent > /dev/null")
+awful.spawn("picom")
+awful.spawn("light-locker --lock-on-lid")
+awful.spawn("blueman-applet")
 
 --- daily fortune ---
-awful.spawn.with_shell("sleep 1 && notify-send \"$(cowsay $(fortune))\" -t 0")
+awful.spawn.easy_async_with_shell("sleep 1 && notify-send \"$(cowsay $(fortune))\" -t 0")

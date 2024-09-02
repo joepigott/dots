@@ -1,30 +1,30 @@
 local palettes = {
     all = {
-        red     = { base = "#e68a8a", bright = "#f2b1b1", dim = "#7c5248"},
-        green   = { base = "#99cc99", bright = "#b2d8b2", dim = "#626b55" },
-        yellow  = { base = "#fad7a0", bright = "#f7dcb4", dim = "#7f795f" },
-        blue    = { base = "#6699cc", bright = "#87cefa", dim = "#656d77" },
-        magenta = { base = "#c8a2c8", bright = "#d8bfd8", dim = "#74657a" },
-        cyan    = { base = "#6fc3b2", bright = "#64dbdb", dim = "#5f7776" },
-        white   = { base = "#e2cebe", bright = "#f2f2f2", dim = "#8c8775" },
-        orange  = { base = "#d39972", bright = "#ed8f50", dim = "#9e775d" },
-        pink    = { base = "#c48398", bright = "#ea7097", dim = "#936473" },
+        red     = { base = "#de524a", bright = "#ff7162" },
+        green   = { base = "#22d87a", bright = "#c9ee5e" },
+        yellow  = { base = "#ecc747", bright = "#edd682" },
+        blue    = { base = "#2366c3", bright = "#7fb4ff" },
+        magenta = { base = "#9132e8", bright = "#c17fff" },
+        cyan    = { base = "#55e7f0", bright = "#a7ecef" },
+        white   = { base = "#e5e9e6", bright = "#fafafa" },
+        orange  = { base = "#E27024", bright = "#ffb27f" },
+        pink    = { base = "#e65bad", bright = "#dda19f" },
 
-        bg0 = "#141414",
-        bg1 = "#000000",
-        bg2 = "#3d3d3d",
-        bg3 = "#5e5e5e",
-        bg4 = "#707070",
+        bg0 = "#0f0b0d",
+        bg1 = "#130912",
+        bg2 = "#252123",
+        bg3 = "#5f5b5d",
+        bg4 = "#7f7b7d",
 
-        fg0 = "#f2f2f2",
-        fg1 = "#c5c5c5",
-        fg2 = "#adadad",
-        fg3 = "#a2a2a2",
+        fg0 = "#e5e9e6",
+        fg1 = "#c5c9c6",
+        fg2 = "#a5a9a6",
+        fg3 = "#858986",
 
-        comment = "#5d5d5d",
+        comment = "#5f5b5d",
 
-        sel0 = "#2f2f2f",
-        sel1 = "#2f2f2f",
+        sel0 = "#2f2b2d",
+        sel1 = "#2f2b2d",
     }
 }
 
