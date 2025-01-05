@@ -8,7 +8,7 @@ lsp.lua_ls.setup({})
 lsp.texlab.setup({})
 lsp.jdtls.setup({})
 lsp.svelte.setup({})
-lsp.tsserver.setup({})
+lsp.ts_ls.setup({})
 lsp.html.setup({})
 lsp.cssls.setup({})
 lsp.clangd.setup({})
@@ -30,4 +30,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   end,
+})
+
+-- Disable virtual_text since it's redundant due to lsp_lines.
+vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = true
 })

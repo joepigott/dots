@@ -31,10 +31,7 @@ return require('packer').startup(function()
     use 'williamboman/mason.nvim'
     use 'nvim-lualine/lualine.nvim'
     use 'lewis6991/gitsigns.nvim'
-    use {
-        'j-hui/fidget.nvim',
-        tag = "legacy" -- config pinned to legacy until figdet rewrite is stable
-    }
+    use 'j-hui/fidget.nvim'
     use 'tikhomirov/vim-glsl'
     use 'evanleck/vim-svelte'
     use 'sukima/xmledit'
@@ -50,4 +47,10 @@ return require('packer').startup(function()
             require("toggleterm").setup()
         end
     }
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").setup()
+        end,
+    })
 end)

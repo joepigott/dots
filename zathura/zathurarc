@@ -8,7 +8,7 @@ set selection-clipboard clipboard
 
 set incremental-search "true"
 
-set font "JetBrainsMono NF"
+set font "TerminessNerdFont Mono"
 
 set adjust-open "width"
 
@@ -20,8 +20,8 @@ set guioptions none
 
 # colors
 
-set default-bg "#130912"
-set default-fg "#e5e9e6"
+set default-bg "#e5e9e6"
+set default-fg "#130912"
 set recolor-darkcolor "#de524a"
 set recolor-lightcolor "#130912"
 set highlight-color "#55e7f0"
@@ -29,6 +29,6 @@ set highlight-active-color "#de524a"
 set inputbar-bg "#130912"
 set inputbar-fg "#de524a"
 
-set recolor true
+set recolor false
 map i recolor
 map <C-Space> toggle_statusbar

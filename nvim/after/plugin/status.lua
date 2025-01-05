@@ -9,7 +9,10 @@ local sections = {
 
 require('lualine').setup({
     options = {
+        theme = "auto",
         disabled_filetypes = {'NvimTree'},
+        component_separators = "",
+        section_separators = "",
     },
     sections = sections
 })

@@ -1,6 +1,5 @@
 require("configuration.init")
 
-local naughty = require("naughty")
 local wibox = require("wibox")
 local animation = require("modules.animation")
 local xrsrc = require("beautiful.xresources")
@@ -44,11 +43,11 @@ return function(s)
 
     local vpn_inner = awful.widget.watch(
         "vpnstatus.sh",
-        60,
+        10,
         nil,
         wibox.widget({
             widget = wibox.widget.textbox,
-            font = beautiful.font .. " Bold 14"
+            font = beautiful.font .. " Bold 18"
         })
     )
 
@@ -57,6 +56,15 @@ return function(s)
         fg = beautiful.yellow,
         widget = wibox.container.background
     })
+
+    local vpn_tooltip = awful.tooltip({})
+    vpn_tooltip:add_to_object(vpn)
+    vpn:connect_signal("mouse::enter", function()
+        awful.spawn.easy_async_with_shell("vpntooltip.sh", function(stdout, stderr, reason, exit_code)
+            local trimmed_output = stdout:match("^%s*(.-)%s*$")
+            vpn_tooltip.text = trimmed_output 
+        end)
+    end)
 
     local battery = require("battery-widget")
 

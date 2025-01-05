@@ -4,6 +4,7 @@ require("configuration.keys")
 awful.rules.rules = {
     {
         rule = { },
+        except_any = { class = { "Conky" } },
 
         properties = {
             border_width =  beautiful.border_width,
@@ -56,6 +57,15 @@ awful.rules.rules = {
 
         properties = {
             floating = true
+        }
+    },
+
+    {
+        rule_any = { class = { "Conky" } },
+
+        properties = {
+            border_width = 0,
+            below = true,
         }
     },
 }

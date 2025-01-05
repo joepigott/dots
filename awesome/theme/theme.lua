@@ -49,7 +49,6 @@ nconf.presets.critical.bg = theme.bg
 nconf.presets.critical.fg = theme.white
 nconf.presets.critical.border_color = theme.lred
 
-
 theme.notification_font = "TerminessNerdFont Bold 12"
 theme.notification_bg = theme.bg
 theme.notification_fg = theme.yellow

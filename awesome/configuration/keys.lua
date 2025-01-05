@@ -44,17 +44,23 @@ globalkeys = gears.table.join(
     --- system controls ---
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift" }, "q", awesome.quit),
-    awful.key({ modkey }, "l", function() awful.spawn("light-locker-command -l") end),
+    awful.key({ modkey, "Shift" }, "l", function() awful.spawn("light-locker-command -l") end),
     awful.key({ modkey, "Shift" }, "s", function() awful.util.spawn("shutdown now") end),
     awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("reboot") end),
     awful.key({ modkey, "Shift" }, "c", function() awful.spawn("killall compfy") end),
     awful.key({ modkey, "Control" }, "c", function() awful.spawn("compfy") end),
-    
+    awful.key({ modkey }, "Print", function() awful.spawn("flameshot gui") end),
+    awful.key({}, "Print", function() awful.spawn("flameshot full -p ~/Pictures/screenshots/") end),
+    awful.key({}, "XF86MonBrightnessUp", function() awful.spawn("xbacklight -inc 10") end),
+    awful.key({}, "XF86MonBrightnessDown", function() awful.spawn("xbacklight -dec 10") end),
+    awful.key({ modkey }, "XF86MonBrightnessUp", function() awful.spawn("xbacklight -set 100") end),
+    awful.key({ modkey }, "XF86MonBrightnessDown", function() awful.spawn("xbacklight -set 0") end),
+
     --- appplications ---
     awful.key({ modkey }, "Return", function() awful.spawn(terminal) end),
     awful.key({ modkey }, "r", function() awful.util.spawn("rofi -show drun") end),
     awful.key({ modkey }, "w", function() awful.util.spawn("rofi -show window") end),
-    awful.key({ modkey }, "b", function() awful.util.spawn("waterfox") end),
+    awful.key({ modkey }, "b", function() awful.util.spawn("zen-browser") end),
     awful.key({ modkey }, "z", function() awful.util.spawn("zathura") end),
 
     --- media ---

@@ -1,4 +1,5 @@
 local nnoremap = require("pigroy.keymap").nnoremap
+local lsp_lines = require("lsp_lines")
 
 --- tree ---
 nnoremap("<C-n>", "<cmd>NvimTreeToggle<CR>")
@@ -20,7 +21,11 @@ nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fh", "<cmd>Telescope help_tags<cr>")
+nnoremap("<leader>fe", "<cmd>Telescope diagnostics<cr>")
 
 --- motions ---
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
+
+--- lsp lines ---
+nnoremap("<leader>l", function() lsp_lines.toggle() end)
